@@ -16,6 +16,7 @@ class ETL_Processing():
         gdb_base_dronepoints = os.environ['gdb_base_path_dronepoints']
         gdb_base_dronpointstable = os.environ['gdb_base_path_dronepointstable']
         dron_survey_dir_base= os.environ['dronephotopoints_base_dir']
+        aprx = os.environ['aprx']
     def __init__(self) -> None:
 
         self.circuitID_list = []
