@@ -6,16 +6,18 @@ import pandas as pd
 import sqlalchemy 
 
 class ETL_Processing():
+        #establish class attributes
+        server = os.environ['SERVERCRED']
+        database = os.environ['DATABASENAME']
+        user_name=['USER']
+        driver = '{ODBC Driver 17 for SQL Server}'
+        connection_string = f"DRIVER={self.driver};SERVER={self.server};DATABASE={self.database};Trusted_Connection=yes"
+        conn = pyodbc.connect(self.connection_string)
+        gdb_base_dronepoints = os.environ['gdb_base_path_dronepoints']
+        gdb_base_dronpointstable = os.environ['gdb_base_path_dronepointstable']
+        dron_survey_dir_base= os.environ['dronephotopoints_base_dir']
     def __init__(self) -> None:
-        self.server = 'DBJIRADCP1\PROD,51433'
-        self.database = 'JiraDC_PROD'
-        self.user_name='Cpenni3'
-        self.driver = '{ODBC Driver 17 for SQL Server}'
-        self.connection_string = f"DRIVER={self.driver};SERVER={self.server};DATABASE={self.database};Trusted_Connection=yes"
-        self.conn = pyodbc.connect(self.connection_string)
-        self.gdb_base = 'C:\\Users\\CPenni3\\OneDrive - Duke Energy\\Documents\\ArcGIS\\Projects\\GeoTagged_PhotoPoints\\GeoTagged_PhotoPoints.gdb\\fc_{}'
-        self.gdb_base_tb = 'C:\\Users\\CPenni3\\OneDrive - Duke Energy\\Documents\\ArcGIS\\Projects\\GeoTagged_PhotoPoints\\GeoTagged_PhotoPoints.gdb\\tb_{}'
-        self.directory_base='Y:\\DroneSurveyImages\{}\{}\{}\{}'
+
         self.circuitID_list = []
         self.state_list = []
         self.area_list = []
