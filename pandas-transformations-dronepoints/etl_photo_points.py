@@ -23,7 +23,6 @@ class ETL_Processing():
         self.state_list = []
         self.area_list = []
         self.ops_ctr = []
-        self.aprx = 'C:\\Users\\CPenni3\\OneDrive - Duke Energy\\Documents\\ArcGIS\\Projects\\GeoTagged_PhotoPoints\\GeoTagged_PhotoPoints.aprx'
         
     def queryJira(self):
         cursor = self.conn.cursor()
